@@ -1,0 +1,9 @@
+<div>
+  <h1>Articles</h1>
+
+  <div id='articles-display'>
+    <%= turbo_frame_tag "articles", src: fetch_articles_articles_path, loading: "lazy" do %>
+      Loading...
+    <% end %>
+  </div>
+</div>
