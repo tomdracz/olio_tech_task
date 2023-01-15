@@ -16,6 +16,10 @@ module Articles
       )
     end
 
+    def likes
+      Like.for_article(article_id: id)&.like_count || 0
+    end
+
     private
 
     def initialize(id:, title:, description:, town:, collection_notes:, photo:, user_name:)

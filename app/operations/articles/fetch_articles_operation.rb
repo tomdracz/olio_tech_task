@@ -5,10 +5,10 @@ module Articles
     BASE_URL = 'https://s3-eu-west-1.amazonaws.com/olio-staging-images/developer/test-articles-v4.json'
 
     def self.call(url: BASE_URL)
-      new(url:).call
+      new(url).call
     end
 
-    def initialize(url:)
+    def initialize(url)
       @url = url
     end
 

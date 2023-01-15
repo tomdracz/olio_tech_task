@@ -11,6 +11,10 @@ Rails.application.routes.draw do
       collection do
         get :fetch
       end
+
+      member do
+        patch :like
+      end
     end
   end
 end

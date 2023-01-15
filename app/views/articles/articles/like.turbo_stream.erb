@@ -1,0 +1,1 @@
+<%= turbo_stream.replace "article_likes_#{@like.article_id}", partial: 'likes', locals: { article_id: @like.article_id, like_count: @like.like_count } %>

@@ -10,5 +10,9 @@
         <p class="font-normal mb-2 text-gray-700 dark:text-gray-400"><%= article.collection_notes %></p>
         <p class="font-normal text-gray-700 dark:text-gray-400">From: <%= article.user_name %>, <%= article.town %></p>
       </div>
+      <div class="flex p-4 items-center">
+        <%= render partial: 'likes', locals: { article_id: article.id, like_count: article.likes } %>
+        <%= button_to 'Add Like!', like_articles_article_path(article.id), method: :patch, class: "mx-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+      </div>
     </div>
 <% end %>

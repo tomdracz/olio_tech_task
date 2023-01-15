@@ -57,6 +57,33 @@ RSpec.describe 'viewing articles', type: :system do
           end
         end
       end
+
+      context 'displaying and updating article likes' do
+        before do
+          Articles::Like.create(article_id: 3_899_651, like_count: 5)
+        end
+
+        it 'displays like count for the article' do
+          within('#article-3899651') do
+            expect(page).to have_content('Likes: 5')
+          end
+        end
+
+        it 'allows user to add a like to an article with existing likes' do
+          within('#article-3899651') do
+            click_button('Add Like!')
+            expect(page).to have_content('Likes: 6')
+          end
+        end
+
+        it 'allows user to add a like to an article without existing likes' do
+          within('#article-3899631') do
+            expect(page).to have_content('Likes: 0')
+            click_button('Add Like!')
+            expect(page).to have_content('Likes: 1')
+          end
+        end
+      end
     end
   end
 end

@@ -8,4 +8,14 @@ RSpec.describe 'Articles', type: :request do
       expect(Articles::FetchArticlesOperation).to have_received(:call)
     end
   end
+
+  describe '#like' do
+    it 'triggers the like article operation' do
+      allow(Articles::LikeArticleOperation).to receive(:call)
+        .with(article_id: '123')
+        .and_return(instance_double(Articles::Like))
+      patch '/articles/articles/123/like'
+      expect(Articles::LikeArticleOperation).to have_received(:call).with(article_id: '123')
+    end
+  end
 end
