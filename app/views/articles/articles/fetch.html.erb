@@ -1,3 +1,7 @@
 <%= turbo_frame_tag "articles" do %>
-  <%= render collection: @articles, partial: 'article' %>
+  <% if @articles.any? %>
+    <%= render collection: @articles, partial: 'article' %>
+  <% else %>
+    <p>No articles currently listed</p>
+  <% end %>
 <% end %>

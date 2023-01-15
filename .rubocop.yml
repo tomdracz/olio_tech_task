@@ -4,7 +4,7 @@ AllCops:
   NewCops: enable
 
 Metrics/BlockLength:
-  Max: 30
+  Enabled: false
 
 Metrics/ParameterLists:
   Max: 10

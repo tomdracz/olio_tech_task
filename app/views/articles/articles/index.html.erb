@@ -1,5 +1,5 @@
 <div>
-  <h1>Articles</h1>
+  <h1 class="mb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Articles</h1>
 
   <div id='articles-display'>
     <%= turbo_frame_tag "articles", src: fetch_articles_articles_path, loading: "lazy" do %>
